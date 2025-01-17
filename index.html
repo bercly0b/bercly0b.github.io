@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Layout</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="video-background">
+        <video autoplay muted loop id="bgVideo">
+            <source src="assets/background-4k.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="container">
+        <!-- Left profile section -->
+        <div class="top-section">
+            <div class="profile-section">
+                <div class="profile-icon">
+                    <img src="assets/logo.png" alt="Profile">
+                </div>
+            </div>
+
+            <!-- Right navigation section -->
+            <div class="nav-section">
+                <a href="https://x.com/aiboobatee" class="nav-link twitter" target="_blank" rel="noopener">
+                    <img src="assets/twitter-logo.svg" alt="Twitter Icon" class="nav-icon">
+                    Twitter
+                </a>
+                <a href="https://t.me/booobateeee" class="nav-link telegram" target="_blank" rel="noopener">
+                    <img src="assets/telegram-logo.svg" alt="Telegram Icon" class="nav-icon">
+                    Telegram
+                </a>
+                <a href="https://dexscreener.com/solana/Czo4qqeDNNgY8nAax8LGmSHPDooqHUmuAxKVAFFYmzBq" class="nav-link dex" target="_blank" rel="noopener">
+                    <img src="assets/dexscreener-logo.svg" alt="Dexscreener Icon" class="nav-icon">
+                    Dexscreener
+                </a>
+            </div>
+        </div>
+
+        <!-- Main content section -->
+        <div class="bottom-section">
+            <div class="hero-section">
+                <h1 class="title">BoobaTEE</h1>
+                <p class="subtitle">Boobs Are A Perfect Trusted<br>Execution Environment.</p>
+            </div>
+
+            <div class="contract-address">
+                <span class="label">$BBT Contract Address</span>
+                <div class="address-container">
+                    <div class="address">8c7NQWrKqw9Mdo6CNPwbwariGSFQkkVuRUfyPkx6Ypy5</div>
+                    <button class="copy-button" aria-label="Copy address"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="shadow"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const copyButton = document.querySelector('.copy-button');
+            const address = document.querySelector('.address');
+
+            copyButton.addEventListener('click', async function() {
+                try {
+                    await navigator.clipboard.writeText(address.textContent);
+
+                    copyButton.style.opacity = '1';
+                    setTimeout(() => {
+                        copyButton.style.opacity = '0.7';
+                    }, 200);
+                } catch (err) {
+                    console.error('Clipboard error:', err);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+
