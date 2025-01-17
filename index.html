@@ -8,7 +8,12 @@
 </head>
 <body>
     <div class="video-background">
-        <video autoplay muted loop id="bgVideo">
+        <video
+            autoplay
+            muted
+            loop
+            id="bgVideo"
+            style="opacity: 0; transition: opacity 0.3s ease;">
             <source src="assets/background-4k.mp4" type="video/mp4">
         </video>
     </div>
@@ -76,6 +81,24 @@
                 }
             });
         });
+
+        const video = document.getElementById('bgVideo');
+        
+        video.setAttribute("playsinline", true);
+        video.setAttribute("webkit-playsinline", true);
+        
+        function attemptPlay() {
+            video.play().catch(function(error) {
+                console.log("Error playing video:", error);
+            });
+        }
+
+        video.addEventListener('loadeddata', function() {
+            this.style.opacity = '1';
+            attemptPlay();
+        });
+
+        document.addEventListener('touchstart', attemptPlay, { once: true });
     </script>
 </body>
 </html>
