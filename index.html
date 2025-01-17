@@ -8,6 +8,7 @@
 </head>
 <body>
     <div class="video-background">
+        <div class="video-bg-safari"></div>
         <video
             autoplay
             muted
@@ -84,21 +85,9 @@
 
         const video = document.getElementById('bgVideo');
         
-        video.setAttribute("playsinline", true);
-        video.setAttribute("webkit-playsinline", true);
-        
-        function attemptPlay() {
-            video.play().catch(function(error) {
-                console.log("Error playing video:", error);
-            });
-        }
-
         video.addEventListener('loadeddata', function() {
             this.style.opacity = '1';
-            attemptPlay();
         });
-
-        document.addEventListener('touchstart', attemptPlay, { once: true });
     </script>
 </body>
 </html>
