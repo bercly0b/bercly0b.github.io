@@ -223,6 +223,7 @@ body {
     .bottom-section {
         flex-direction: column;
         align-items: center;
+        margin-bottom: 15px;
     }
 
     .contract-address {
