@@ -88,6 +88,7 @@ body {
     position: relative;
     overflow-y: auto;
     overflow-x: hidden;
+    z-index: 1;
     -webkit-overflow-scrolling: touch;
 }
 
